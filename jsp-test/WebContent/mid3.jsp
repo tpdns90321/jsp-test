@@ -4,7 +4,6 @@
 <%
 	int num = 1;
 	String numParam = request.getParameter("num");
-	String numParam2 = request.getParameter("num");
 	if (numParam != null) {
 		num = Integer.parseInt(numParam);
 	}
@@ -35,7 +34,7 @@ button { padding: 5px; width: 50px; }
 			</input>
 		</div>
 		<br/>
-		<select name="num2">
+		<select name="num">
 			<option value="1"<%if (num == 1){%>selected<%}%>>one</option>
 			<option value="2"<%if (num == 2){%>selected<%}%>>two</option>
 			<option value="3"<%if (num == 3){%>selected<%}%>>three</option>
