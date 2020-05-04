@@ -4,6 +4,7 @@
 <%
 	int num = 1;
 	String numParam = request.getParameter("num");
+	String numParam2 = request.getParameter("num");
 	if (numParam != null) {
 		num = Integer.parseInt(numParam);
 	}
@@ -33,23 +34,12 @@ button { padding: 5px; width: 50px; }
 				three
 			</input>
 		</div>
-		<%
-		String text = "";
-		switch (num) {
-		case 1:
-			text = "one";
-			break;
-		case 2:
-			text = "two";
-			break;
-		case 3:
-			text = "three";
-			break;
-		default:
-		}
-		%>
-		<input type="text" value=<%= text %> />
 		<br/>
+		<select name="num2">
+			<option value="1"<%if (num == 1){%>selected<%}%>>one</option>
+			<option value="2"<%if (num == 2){%>selected<%}%>>two</option>
+			<option value="3"<%if (num == 3){%>selected<%}%>>three</option>
+		</select>
 		<button type="submit">Ok</button>
 	</form>
 </body>
