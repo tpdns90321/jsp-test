@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Context>
+	<Resource name="jdbc/student1" auth="Container"
+		type="javax.sql.DataSource" driverClassName="com.mysql.jdbc.Driver"
+		maxTotal="50" maxIdle="10" maxWaitMills="10000" username="user1"
+		password="test123"
+		url="jdbc:mysql://localhost:3306/student1?useUnicode=true&amp;serverTimezone=Asia/Seoul" />
+	<Resource name="jdbc/book" auth="Container"
+		type="javax.sql.DataSource" driverClassName="com.mysql.jdbc.Driver"
+		maxTotal="50" maxIdle="10" maxWaitMillis="10000" username="user1"
+		password="test123"
+		url="jdbc:mysql://localhost:3306/book?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=UTC" />
+</Context>
