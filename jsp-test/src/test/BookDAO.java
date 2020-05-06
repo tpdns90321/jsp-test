@@ -36,33 +36,18 @@ public class BookDAO {
 		}
 	}
 	
-	public static List<Book> findByName(String name) throws Exception {
-		String sql = "SELECT u.*, d.departmentName " + 
-					 "FROM book u LEFT JOIN department d ON u.departmentId = d.id " +
-					 "WHERE u.name LIKE ?";
+	public static List<Book> findByAuthor(String author) throws Exception {
+		String sql = "SELECT b.*, c.categoryName " + 
+					 "FROM book b LEFT JOIN category c ON b.categoryId = c.id " +
+					 "WHERE b.author LIKE ?";
 
-		try (Connection connection = DB.getConnection("student1");
+		try (Connection connection = DB.getConnection("book");
 			 PreparedStatement statement = connection.prepareStatement(sql)) {
-			statement.setString(1, "%" + name + "%");
+			statement.setString(1, "%" + author + "%");
 			ResultSet result = statement.executeQuery();
 			List<Book> list = bookFrom(result);
 			result.close();
 			return list;
-		}
-	}
-
-	public static Book findById(int id) throws Exception {
-		String sql = "SELECT u.*, d.departmentName " + 
-					 "FROM book u LEFT JOIN department d ON u.departmentId = d.id " +
-					 "WHERE u.id = ?";
-
-		try (Connection connection = DB.getConnection("student1");
-			 PreparedStatement statement = connection.prepareStatement(sql)) {
-			statement.setInt(1, id);
-			ResultSet result = statement.executeQuery();
-			List<Book> list = bookFrom(result);
-			result.close();
-			return list.get(0);
 		}
 	}
 }
